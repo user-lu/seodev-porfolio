@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Projects | Luis Sevilla</title>
+    <script>
+      // Instant check before the body renders
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      }
+    </script>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Boxicons CDN -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar (Same as Main Page) -->
+    <header class="navbar">
+      <a href="index.html" class="logo">Luis Sevilla</a>
+      <a href="index.html" class="back-home-link"
+        ><i class="bx bx-arrow-back"></i> Back to Home</a
+      >
+    </header>
+
+    <main class="projects-page">
+      <section class="projects-header">
+        <h1>All Projects</h1>
+        <p>A full showcase of my web development and SEO builds.</p>
+      </section>
+
+      <!-- Project Grid Container -->
+      <div class="projects-grid">
+        <!-- PROJECT CARD 1 -->
+        <article class="project-card">
+          <div class="project-image">
+            <img
+              src="https://via.placeholder.com/600x350"
+              alt="Project 1 Preview"
+            />
+          </div>
+          <div class="project-content">
+            <ul class="tech-tags">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+            <h3>Project Title One</h3>
+            <p>
+              Brief description of the project, highlighting key features, SEO
+              strategy, or interactive elements implemented.
+            </p>
+            <div class="project-links">
+              <a
+                href="https://your-live-demo-link.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="bx bx-link-external"></i> Live Demo
+              </a>
+              <a
+                href="https://github.com/yourusername/repo-name"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="bx bxl-github"></i> Code
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT CARD 2 (Placeholder) -->
+        <article class="project-card">
+          <div class="project-image">
+            <img
+              src="https://via.placeholder.com/600x350"
+              alt="Project 2 Preview"
+            />
+          </div>
+          <div class="project-content">
+            <ul class="tech-tags">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JS</li>
+            </ul>
+            <h3>Project Title Two</h3>
+            <p>
+              Brief description of the project, highlighting key features, SEO
+              strategy, or interactive elements implemented.
+            </p>
+            <div class="project-links">
+              <a href="#"><i class="bx bx-link-external"></i> Live Demo</a>
+              <a href="#"><i class="bx bxl-github"></i> Code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT CARD 3 (Placeholder) -->
+        <article class="project-card">
+          <div class="project-image">
+            <img
+              src="https://via.placeholder.com/600x350"
+              alt="Project 3 Preview"
+            />
+          </div>
+          <div class="project-content">
+            <ul class="tech-tags">
+              <li>HTML</li>
+              <li>CSS</li>
+            </ul>
+            <h3>Project Title Three</h3>
+            <p>
+              Brief description of the project, highlighting key features, SEO
+              strategy, or interactive elements implemented.
+            </p>
+            <div class="project-links">
+              <a href="#"><i class="bx bx-link-external"></i> Live Demo</a>
+              <a href="#"><i class="bx bxl-github"></i> Code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Duplicate the <article class="project-card"> block above anytime you want to add a new project! -->
+      </div>
+    </main>
+    <script src="script.js" defer></script>
+  </body>
+</html>
