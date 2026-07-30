@@ -4,27 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Projects | Luis Sevilla</title>
+    <meta
+      name="description"
+      content="Explore all web development and technical SEO projects built by Luis Sevilla."
+    />
+
+    <!-- OPEN GRAPH META TAGS -->
+    <meta property="og:title" content="All Projects | Luis Sevilla" />
+    <meta
+      property="og:description"
+      content="Explore all web development and technical SEO projects built by Luis Sevilla."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- SCRIPT TO PREVENT LIGHT/DARK FLASH -->
     <script>
-      // Instant check before the body renders
       const savedTheme = localStorage.getItem("theme");
       if (savedTheme) {
         document.documentElement.setAttribute("data-theme", savedTheme);
       }
     </script>
-    <link rel="stylesheet" href="style.css" />
-    <!-- Boxicons CDN -->
+
+    <!-- STYLESHEET/FONTS-->
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Navigation Bar (Same as Main Page) -->
-    <header class="navbar">
-      <a href="index.html" class="logo">Luis Sevilla</a>
-      <a href="index.html" class="back-home-link"
-        ><i class="bx bx-arrow-back"></i> Back to Home</a
-      >
+    <!-- NAVIGATION BAR -->
+    <header>
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="index.html" class="logo">Luis Sevilla</a>
+        <div class="nav-right">
+          <a href="index.html" class="back-home-link">
+            <i class="bx bx-arrow-back" aria-hidden="true"></i> Back to Home
+          </a>
+          <button
+            id="themeToggle"
+            class="theme-btn"
+            aria-label="Toggle color theme"
+          >
+            <i class="bx bx-moon" id="themeIcon" aria-hidden="true"></i>
+          </button>
+        </div>
+      </nav>
     </header>
 
     <main class="projects-page">
@@ -33,18 +58,19 @@
         <p>A full showcase of my web development and SEO builds.</p>
       </section>
 
-      <!-- Project Grid Container -->
+      <!-- PROJECT GRID CONTAINER -->
       <div class="projects-grid">
-        <!-- PROJECT CARD 1 -->
+        <!-- Project 1 -->
         <article class="project-card">
           <div class="project-image">
             <img
               src="https://via.placeholder.com/600x350"
-              alt="Project 1 Preview"
+              alt="Project Title One preview screenshot"
+              loading="lazy"
             />
           </div>
           <div class="project-content">
-            <ul class="tech-tags">
+            <ul class="tech-tags" aria-label="Technologies used">
               <li>HTML</li>
               <li>CSS</li>
               <li>JavaScript</li>
@@ -59,33 +85,36 @@
                 href="https://your-live-demo-link.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="btn primary-btn"
               >
-                <i class="bx bx-link-external"></i> Live Demo
+                <i class="bx bx-link-external" aria-hidden="true"></i> Live Demo
               </a>
               <a
                 href="https://github.com/yourusername/repo-name"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="btn secondary-btn"
               >
-                <i class="bx bxl-github"></i> Code
+                <i class="bx bxl-github" aria-hidden="true"></i> Code
               </a>
             </div>
           </div>
         </article>
 
-        <!-- PROJECT CARD 2 (Placeholder) -->
+        <!-- Project 2 -->
         <article class="project-card">
           <div class="project-image">
             <img
               src="https://via.placeholder.com/600x350"
-              alt="Project 2 Preview"
+              alt="Project Title Two preview screenshot"
+              loading="lazy"
             />
           </div>
           <div class="project-content">
-            <ul class="tech-tags">
+            <ul class="tech-tags" aria-label="Technologies used">
               <li>HTML</li>
               <li>CSS</li>
-              <li>JS</li>
+              <li>JavaScript</li>
             </ul>
             <h3>Project Title Two</h3>
             <p>
@@ -93,22 +122,37 @@
               strategy, or interactive elements implemented.
             </p>
             <div class="project-links">
-              <a href="#"><i class="bx bx-link-external"></i> Live Demo</a>
-              <a href="#"><i class="bx bxl-github"></i> Code</a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn primary-btn"
+              >
+                <i class="bx bx-link-external" aria-hidden="true"></i> Live Demo
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn secondary-btn"
+              >
+                <i class="bx bxl-github" aria-hidden="true"></i> Code
+              </a>
             </div>
           </div>
         </article>
 
-        <!-- PROJECT CARD 3 (Placeholder) -->
+        <!-- Project 3 -->
         <article class="project-card">
           <div class="project-image">
             <img
               src="https://via.placeholder.com/600x350"
-              alt="Project 3 Preview"
+              alt="Project Title Three preview screenshot"
+              loading="lazy"
             />
           </div>
           <div class="project-content">
-            <ul class="tech-tags">
+            <ul class="tech-tags" aria-label="Technologies used">
               <li>HTML</li>
               <li>CSS</li>
             </ul>
@@ -118,15 +162,48 @@
               strategy, or interactive elements implemented.
             </p>
             <div class="project-links">
-              <a href="#"><i class="bx bx-link-external"></i> Live Demo</a>
-              <a href="#"><i class="bx bxl-github"></i> Code</a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn primary-btn"
+              >
+                <i class="bx bx-link-external" aria-hidden="true"></i> Live Demo
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn secondary-btn"
+              >
+                <i class="bx bxl-github" aria-hidden="true"></i> Code
+              </a>
             </div>
           </div>
         </article>
-
-        <!-- Duplicate the <article class="project-card"> block above anytime you want to add a new project! -->
       </div>
     </main>
+
+    <footer>
+      <p>
+        &copy; <span id="year">2026</span> Luis Sevilla. Built with HTML, CSS, &
+        Vanilla JS
+        <svg
+          class="heart-icon"
+          viewBox="0 0 24 24"
+          width="18"
+          height="18"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            fill="currentColor"
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          />
+        </svg>
+      </p>
+    </footer>
+
     <script src="script.js" defer></script>
   </body>
 </html>

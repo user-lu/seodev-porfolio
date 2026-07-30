@@ -1,12 +1,13 @@
-/* --- CSS Variables & Theme Setup --- */
+/* CSS VARIABLES & THEMES */
 :root {
   --bg-color: #ffffff;
   --alt-bg: #f8f9fa;
   --text-color: #212529;
+  --muted-text: #64748b;
   --accent-color: #2563eb;
   --accent-hover: #1d4ed8;
   --card-bg: #ffffff;
-  --tech-tag-bg: #f8f9facc;
+  --tech-tag-bg: #f1f5f9;
   --border-color: #e5e7eb;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --font-family:
@@ -17,6 +18,7 @@
   --bg-color: #0f172a;
   --alt-bg: #1e293b;
   --text-color: #f8fafc;
+  --muted-text: #94a3b8;
   --accent-color: #38bdf8;
   --accent-hover: #0284c7;
   --card-bg: #1e293b;
@@ -25,8 +27,10 @@
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
 }
 
-/* --- Base Rules --- */
-* {
+/* BASE & RESET RULES */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -42,20 +46,14 @@ body {
   font-family: var(--font-family);
   line-height: 1.6;
   transition:
-    background-color 0.3s,
-    color 0.3s;
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1.5rem;
-}
-
-.section {
-  padding: 6rem 0;
-  min-height: 50vh;
-  /* changes were made here */
 }
 
 .alt-bg {
@@ -68,10 +66,10 @@ body {
   margin-bottom: 2rem;
 }
 
-/* --- Scroll Reveal Animations --- */
-
-/* Initially hide all sections except Hero */
+/* SCROLL REVEAL ANIMATIONS */
 .section {
+  padding: 6rem 0;
+  min-height: 50vh;
   opacity: 0;
   transform: translateY(30px);
   transition:
@@ -80,20 +78,18 @@ body {
   will-change: opacity, transform;
 }
 
-/* Hero section stays visible immediately */
 .hero-section {
   opacity: 1;
   transform: translateY(0);
   background-color: var(--alt-bg);
 }
 
-/* Class added by JS when section enters viewport */
 .section.reveal {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* --- Navigation --- */
+/* NAVIGATION BAR */
 header {
   position: sticky;
   top: 0;
@@ -118,11 +114,20 @@ header {
   text-decoration: none;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
 .back-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .back-home-link:hover {
@@ -137,28 +142,22 @@ header {
 }
 
 .nav-links a {
+  position: relative;
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover {
-  color: var(--accent-color);
-}
-
-/* --- Active Navbar Link Style --- */
-.nav-links a {
-  position: relative;
   transition: color 0.3s ease;
 }
 
+.nav-links a:hover,
 .nav-links a.active {
   color: var(--accent-color);
+}
+
+.nav-links a.active {
   font-weight: 700;
 }
 
-/* Optional: Subtle active underline indicator */
 .nav-links a.active::after {
   content: "";
   position: absolute;
@@ -170,8 +169,7 @@ header {
   border-radius: 2px;
 }
 
-/* Light/dark theme button */
-
+/* THEME TOGGLE */
 .theme-btn {
   background: none;
   border: none;
@@ -181,15 +179,16 @@ header {
   align-items: center;
   justify-content: center;
   padding: 0.25rem;
+  border-radius: 4px;
 }
 
 .theme-btn i {
-  font-size: 1.4rem; /* Adjust icon size */
+  font-size: 1.4rem;
   transition: transform 0.3s ease;
 }
 
 .theme-btn:hover i {
-  transform: rotate(15deg); /* Subtle hover animation */
+  transform: rotate(15deg);
 }
 
 .nav-toggle {
@@ -199,30 +198,46 @@ header {
   cursor: pointer;
 }
 
-/* 1. Light Mode (Default State) */
-.about-illustration .vector-light {
-  display: flex; /* Ensure active pair uses flex layout */
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  cursor: pointer;
+  border: none;
 }
 
-.about-illustration .vector-dark {
-  display: none; /* Hide dark pair by default */
+.primary-btn {
+  background-color: var(--accent-color);
+  color: #ffffff;
 }
 
-/* 2. Dark Mode State */
-[data-theme="dark"] .about-illustration .vector-light {
-  display: none; /* Hide light pair when dark theme active */
+.primary-btn:hover {
+  background-color: var(--accent-hover);
 }
 
-[data-theme="dark"] .about-illustration .vector-dark {
-  display: flex; /* Show dark pair and maintain flex layout */
+.secondary-btn {
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  background-color: transparent;
 }
 
-/* --- Hero Section --- */
+.secondary-btn:hover {
+  background-color: var(--border-color);
+}
+
+/* HERO SECTION */
 .hero-section {
-  /* Use dynamic viewport height (dvh) to handle mobile browser address bars cleanly */
-  min-height: calc(
-    100dvh - 70px
-  ); /* 100% viewport height minus header height */
+  min-height: calc(100dvh - 70px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -247,7 +262,7 @@ header {
 
 .hero-text h2 {
   font-size: 1.5rem;
-  color: #64748b;
+  color: var(--muted-text);
   margin-bottom: 1rem;
 }
 
@@ -269,42 +284,9 @@ header {
   border: 4px solid var(--accent-color);
 }
 
-/* --- Buttons --- */
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.2s;
-  cursor: pointer;
-  border: none;
-}
-
-.primary-btn {
-  background-color: var(--accent-color);
-  color: #ffffff;
-}
-
-.primary-btn:hover {
-  background-color: var(--accent-hover);
-}
-
-.secondary-btn {
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-  background-color: transparent;
-}
-
-.secondary-btn:hover {
-  background-color: var(--border-color);
-}
-
-/* --- About Me Section Styling --- */
-
-/* Center alignment for the About container */
+/* ABOUT ME SECTION */
 .about-container {
-  max-width: 800px; /* Constrains width for ideal reading line-length */
+  max-width: 800px;
   margin: 0 auto;
   text-align: center;
   display: flex;
@@ -312,51 +294,58 @@ header {
   align-items: center;
 }
 
-/* Parent Container - increased max-width for two images */
 .about-illustration {
   margin: 1.5rem auto 2.5rem auto;
   width: 100%;
-  max-width: 600px; /* Adjust this based on your image widths */
+  max-width: 600px;
   display: flex;
   justify-content: center;
 }
 
-/* The Container for each pair */
 .vector-pair {
   display: flex;
-  gap: 1.5rem; /* Space between the two side-by-side images */
+  gap: 1.5rem;
   justify-content: center;
   align-items: center;
   width: 100%;
   margin: 0 auto;
 }
 
-/* Base image styling */
 .vector-pair img {
   width: 100%;
   height: auto;
-  flex: 1 1 0; /* Ensures images share width equally */
-  max-width: 280px; /* Hard limit on image width so they don't get too big */
+  flex: 1 1 0;
+  max-width: 280px;
   display: block;
 }
 
-.about-illustration img {
-  width: 100%;
-  height: auto;
-  display: block;
+/* VECTOR IMAGE TOGGLES */
+.about-illustration .vector-light {
+  display: flex;
 }
 
-/* Centered About Text */
+.about-illustration .vector-dark {
+  display: none;
+}
+
+[data-theme="dark"] .about-illustration .vector-light {
+  display: none;
+}
+
+[data-theme="dark"] .about-illustration .vector-dark {
+  display: flex;
+}
+
 .about-text {
   font-size: 1.125rem;
   text-align: left;
   line-height: 1.8;
   color: var(--text-color);
   max-width: 650px;
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
 }
 
-/* --- Skills Section --- */
+/* SKILLS SECTION */
 .filter-buttons {
   display: flex;
   justify-content: center;
@@ -371,11 +360,15 @@ header {
   color: var(--text-color);
   border-radius: 4px;
   cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-.filter-btn.active {
+.filter-btn.active,
+.filter-btn:hover {
   background-color: var(--accent-color);
-  color: white;
+  color: #ffffff;
   border-color: var(--accent-color);
 }
 
@@ -392,16 +385,11 @@ header {
   padding: 1.5rem 1.25rem;
   border-radius: 8px;
   box-shadow: var(--shadow);
-
-  /* Layout setup to stack icon + text vertically */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
-  /* Guarantees uniform card height across all cards */
   min-height: 180px;
-
   transition:
     background-color 0.4s ease,
     border-color 0.4s ease,
@@ -409,20 +397,17 @@ header {
     transform 0.2s ease;
 }
 
-/* Hover state for interactive feel */
 .skill-card:hover {
   transform: translateY(-4px);
   border-color: var(--accent-color);
 }
 
-/* Skill Icon Styling */
 .skill-icon {
   font-size: 2.5rem;
   color: var(--accent-color);
   margin-bottom: 0.75rem;
 }
 
-/* Skill Title & Description */
 .skill-title {
   font-size: 1.1rem;
   font-weight: 600;
@@ -432,21 +417,15 @@ header {
 
 .skill-desc {
   font-size: 0.875rem;
-  color: #64748b; /* Soft gray description */
+  color: var(--muted-text);
   line-height: 1.4;
 }
 
-/* Dark mode adjustment for description text */
-[data-theme="dark"] .skill-desc {
-  color: #94a3b8;
-}
-
-/* Maintain display toggle for filter JS */
 .skill-card.hide {
   display: none;
 }
 
-/* --- Projects Section --- */
+/* PROJECTS SECTION */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -482,10 +461,9 @@ header {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Pushes live demo buttons to the bottom evenly */
+  flex-grow: 1;
 }
 
-/* Tech Tags */
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
@@ -500,8 +478,8 @@ header {
   padding: 0.25rem 0.6rem;
   background-color: var(--tech-tag-bg);
   color: var(--text-color);
-  /* border-color: #ffffff; */
   border-radius: 4px;
+  font-weight: 500;
 }
 
 .project-content h3 {
@@ -511,50 +489,29 @@ header {
 }
 
 .project-content p {
-  color: #64748b;
+  color: var(--muted-text);
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
 }
 
 .project-links {
-  margin-top: auto; /* Aligns buttons at bottom of cards regardless of text length */
+  margin-top: auto;
   display: flex;
   gap: 0.75rem;
 }
 
 .project-links a {
-  color: var(--accent-color);
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
   flex: 1;
+  color: var(--accent-color);
 }
 
 .project-links a:hover {
-  opacity: 0.5;
+  color: var(--accent-hover);
 }
 
-/* Projects Page Layout */
-.projects-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-}
-
-.projects-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-/* "See More" Button on Homepage */
+/* SEE MORE BUTTON AND PAGE */
 .see-more-container {
   text-align: center;
   margin-top: 2.5rem;
@@ -570,16 +527,30 @@ header {
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .see-more-btn:hover {
   background-color: var(--accent-hover);
 }
 
-/* --- Contact & CTA --- */
+.projects-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* CONTACT FORM SECTION & SOCIAL LINKS */
 .contact-container {
   max-width: 600px;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -607,6 +578,13 @@ header {
   background-color: var(--card-bg);
   color: var(--text-color);
   font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus-visible,
+.form-group textarea:focus-visible {
+  outline: 2px solid var(--accent-color);
+  border-color: transparent;
 }
 
 .error-message {
@@ -622,30 +600,18 @@ header {
   font-weight: 600;
 }
 
-/* Center the button within the form */
-.contact-form button[type="submit"],
-.btn-primary {
+.contact-form button[type="submit"] {
   display: block;
-  margin: 1.5rem auto 0 auto; /* Top spacing + auto horizontal margins center a block element */
-  cursor: pointer;
+  margin: 1.5rem auto 0 auto;
 }
-
-#contact,
-.contact-section {
-  height: auto;
-  min-height: 100vh; /* Replaces fixed height so content expands vertically on mobile */
-  padding-bottom: 2rem;
-}
-
-/* Social Links */
 
 .social-links {
   display: flex;
-  flex-wrap: wrap; /* Allows items to stack cleanly if screen is narrow */
-  justify-content: center; /* Centers links nicely under the submit button */
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  gap: 1rem; /* Modern spacing instead of explicit pipe "|" elements */
-  margin-top: 1.5rem;
+  gap: 1.25rem;
+  margin-top: 2rem;
   width: 100%;
 }
 
@@ -653,60 +619,54 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  white-space: nowrap; /* Prevents "Email" and "Me" from breaking onto two lines */
-  color: #38bdf8; /* Matching your UI accent color */
+  white-space: nowrap;
+  color: var(--accent-color);
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-/* Control icon size directly */
 .social-link i {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .social-link:hover {
-  color: #0077b5; /* Highlight color on hover */
+  color: var(--accent-hover);
 }
 
-.social-links a {
-  color: var(--accent-color);
-  text-decoration: none;
-  margin: 0 0.5rem;
-}
-
+/* FOOTER SECTION */
 footer {
   border-top: 1px solid var(--border-color);
   font-size: 0.9rem;
   width: 100%;
-  padding: 2rem 1rem 2.5rem 1rem; /* Top, Right, Bottom, Left spacing */
-  height: auto; /* Ensures container grows to fit content */
-  box-sizing: border-box;
+  padding: 2rem 1rem 2.5rem 1rem;
   text-align: center;
 }
 
-/* Align the heart inline with footer text */
-.site-footer p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
+footer p {
+  display: block;
+  line-height: 1.6;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
-/* Heart Icon */
 .heart-icon {
-  color: var(--accent-color); /* Inherits your light/dark accent variable */
-  transition:
-    color 0.3s ease,
-    transform 0.2s ease;
-  vertical-align: middle;
+  color: var(--accent-color);
+  transition: transform 0.2s ease;
+  vertical-align: -0.15em;
+  display: inline-block;
 }
 
-/* Optional subtle pulse effect on hover */
 .heart-icon:hover {
   transform: scale(1.2);
 }
 
-/* --- Mobile Responsiveness --- */
+/* MEDIA QUERIES & RESPONSIVENESS */
 @media (max-width: 768px) {
+  .section {
+    padding: 4rem 0;
+  }
+
   .hero-container {
     flex-direction: column-reverse;
     text-align: center;
@@ -728,7 +688,7 @@ footer {
     height: 3px;
     background-color: var(--text-color);
     position: relative;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease;
   }
 
   .hamburger::before,
@@ -740,6 +700,7 @@ footer {
   .hamburger::before {
     top: -8px;
   }
+
   .hamburger::after {
     top: 8px;
   }
@@ -766,27 +727,19 @@ footer {
   }
 
   .vector-pair {
-    gap: 1rem; /* Reduce gap on mobile */
+    gap: 1rem;
   }
 
   .about-text {
     font-size: 1rem;
     line-height: 1.7;
-    text-align: left;
-  }
-
-  .section {
-    padding: 4rem 0;
-    /* added */
   }
 }
 
-/* If the screen gets very small, stack them again so they don't crush */
 @media (max-width: 480px) {
   .contact-form button[type="submit"],
-  .btn-primary,
   .see-more-btn {
-    width: 100%; /* Full-width buttons are much easier to tap on mobile */
+    width: 100%;
   }
 
   .see-more-btn {
@@ -794,11 +747,11 @@ footer {
   }
 
   .vector-pair {
-    flex-direction: column; /* Stack vertically on very small screens */
+    flex-direction: column;
     gap: 0.75rem;
   }
 
   .vector-pair img {
-    max-width: 180px; /* Make images smaller when stacked vertically */
+    max-width: 180px;
   }
 }

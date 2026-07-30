@@ -9,7 +9,7 @@
       content="Portfolio of Luis Sevilla, a Web Developer and SEO Specialist specializing in fast, responsive, and search-optimized web applications."
     />
 
-    <!-- Open Graph for Social Sharing / SEO -->
+    <!-- OPEN GRAPH META TAGS-->
     <meta
       property="og:title"
       content="Luis Sevilla | Web Developer & SEO Specialist"
@@ -20,15 +20,15 @@
     />
     <meta property="og:type" content="website" />
 
+    <!-- SCRIPT TO PREVENT LIGHT/DARK FLASH -->
     <script>
-      // Instant check before the body renders
       const savedTheme = localStorage.getItem("theme");
       if (savedTheme) {
         document.documentElement.setAttribute("data-theme", savedTheme);
       }
     </script>
 
-    <!-- Stylesheets -->
+    <!-- STYLESHEETS/FONTS -->
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -36,14 +36,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Navigation -->
+    <!-- NAVIGATION BAR -->
     <header>
-      <nav class="navbar">
+      <nav class="navbar" aria-label="Main Navigation">
         <a href="#hero" class="logo">Luis Sevilla</a>
         <button
           class="nav-toggle"
           id="navToggle"
-          aria-label="Toggle navigation"
+          aria-label="Toggle navigation menu"
         >
           <span class="hamburger"></span>
         </button>
@@ -56,7 +56,7 @@
             <button
               id="themeToggle"
               class="theme-btn"
-              aria-label="Toggle dark mode"
+              aria-label="Toggle color theme"
             >
               <i class="bx bx-moon" id="themeIcon"></i>
             </button>
@@ -66,15 +66,15 @@
     </header>
 
     <main>
-      <!-- Hero Section -->
+      <!-- HERO SECTION -->
       <section id="hero" class="hero-section">
         <div class="hero-container">
           <div class="hero-text">
             <h1>Hi, I'm <span class="highlight">Luis Sevilla.</span></h1>
             <h2>Web Developer & SEO Specialist</h2>
             <p>
-              I build high-performance, responsive websites and handle site
-              architecture, while optimizing digital experiences for search
+              I build high-performance, responsive websites and site
+              architectures while optimizing digital experiences for search
               visibility and conversions.
             </p>
             <div class="hero-cta">
@@ -84,14 +84,15 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn secondary-btn"
-                ><i class="bx bx-file"></i> View Resume</a
               >
+                <i class="bx bx-file"></i> View Resume
+              </a>
             </div>
           </div>
           <div class="hero-image">
             <img
               src="Images/hero-selfie.webp"
-              alt="Headshot of developer"
+              alt="Luis Sevilla portrait headshot"
               class="hero-selfie"
               width="800"
               height="800"
@@ -101,30 +102,18 @@
         </div>
       </section>
 
-      <!-- About Me -->
+      <!-- ABOUT ME SECTION -->
       <section id="about" class="section">
         <div class="container">
           <h2 class="section-title">About Me</h2>
-          <div class="about-illustration">
+          <div class="about-illustration" aria-hidden="true">
             <div class="vector-pair vector-light">
-              <img
-                src="Images/undraw-light.svg"
-                class="vector-light"
-                alt="..."
-              />
-              <img
-                src="Images/undraw-light2.svg"
-                class="vector-light"
-                alt="..."
-              />
+              <img src="Images/undraw-light.svg" class="vector-light" alt="" />
+              <img src="Images/undraw-light2.svg" class="vector-light" alt="" />
             </div>
             <div class="vector-pair vector-dark">
-              <img src="Images/undraw-dark.svg" class="vector-dark" alt="..." />
-              <img
-                src="Images/undraw-dark2.svg"
-                class="vector-dark"
-                alt="..."
-              />
+              <img src="Images/undraw-dark.svg" class="vector-dark" alt="" />
+              <img src="Images/undraw-dark2.svg" class="vector-dark" alt="" />
             </div>
           </div>
           <p class="about-text">
@@ -134,21 +123,25 @@
             between web development and professional troubleshooting, which
             helps me optimize or design websites to rank well on search engines
             and engage users seamlessly.
-            <br />
-            <br />
+          </p>
+          <p class="about-text">
             I'm ready to bring my grit and technical curiosity to a
-            forward-thinking team or client in need of help!
+            forward-thinking team or client in need of digital growth!
           </p>
         </div>
       </section>
 
-      <!-- Skills Section with Filter Buttons (JS Demo) -->
+      <!-- SKILLS SECTION -->
       <section id="skills" class="section alt-bg">
         <div class="container">
           <h2 class="section-title">Technical Skills</h2>
 
           <!-- Interactive JS Filter -->
-          <div class="filter-buttons">
+          <div
+            class="filter-buttons"
+            role="tablist"
+            aria-label="Skill categories"
+          >
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="dev">Development</button>
             <button class="filter-btn" data-filter="seo">
@@ -159,7 +152,7 @@
           <div class="skills-grid" id="skillsGrid">
             <!-- Skill Card 1 -->
             <div class="skill-card" data-category="dev">
-              <i class="bx bxl-html5 skill-icon"></i>
+              <i class="bx bxl-html5 skill-icon" aria-hidden="true"></i>
               <div class="skill-content">
                 <h3 class="skill-title">HTML5 / Semantic Markup</h3>
                 <p class="skill-desc">
@@ -171,7 +164,7 @@
 
             <!-- Skill Card 2 -->
             <div class="skill-card" data-category="dev">
-              <i class="bx bxl-css3 skill-icon"></i>
+              <i class="bx bxl-css3 skill-icon" aria-hidden="true"></i>
               <div class="skill-content">
                 <h3 class="skill-title">CSS3 & Layouts</h3>
                 <p class="skill-desc">
@@ -183,7 +176,7 @@
 
             <!-- Skill Card 3 -->
             <div class="skill-card" data-category="dev">
-              <i class="bx bxl-javascript skill-icon"></i>
+              <i class="bx bxl-javascript skill-icon" aria-hidden="true"></i>
               <div class="skill-content">
                 <h3 class="skill-title">JavaScript</h3>
                 <p class="skill-desc">
@@ -195,7 +188,7 @@
 
             <!-- Skill Card 4 -->
             <div class="skill-card" data-category="seo">
-              <i class="bx bx-search-alt skill-icon"></i>
+              <i class="bx bx-search-alt skill-icon" aria-hidden="true"></i>
               <div class="skill-content">
                 <h3 class="skill-title">Technical SEO & Audits</h3>
                 <p class="skill-desc">
@@ -207,7 +200,7 @@
 
             <!-- Skill Card 5 -->
             <div class="skill-card" data-category="seo">
-              <i class="bx bx-line-chart skill-icon"></i>
+              <i class="bx bx-line-chart skill-icon" aria-hidden="true"></i>
               <div class="skill-content">
                 <h3 class="skill-title">Google Analytics & GTM</h3>
                 <p class="skill-desc">
@@ -219,7 +212,7 @@
 
             <!-- Skill Card 6 -->
             <div class="skill-card" data-category="seo">
-              <i class="bx bx-target-lock skill-icon"></i>
+              <i class="bx bx-target-lock skill-icon" aria-hidden="true"></i>
               <div class="skill-content">
                 <h3 class="skill-title">Search Console & Strategy</h3>
                 <p class="skill-desc">
@@ -232,7 +225,7 @@
         </div>
       </section>
 
-      <!-- Projects Section (3 Spots) -->
+      <!-- PROJECTS SECTION -->
       <section id="projects" class="section">
         <div class="container">
           <h2 class="section-title">Featured Projects</h2>
@@ -241,7 +234,8 @@
             <article class="project-card">
               <img
                 src="https://via.placeholder.com/400x250"
-                alt="Project 1 Preview"
+                alt="Web Analytics and SEO dashboard project preview"
+                loading="lazy"
               />
               <div class="project-content">
                 <h3>Web Analytics & SEO Setup</h3>
@@ -255,12 +249,12 @@
                   <li>JavaScript</li>
                 </ul>
                 <div class="project-links">
-                  <a href="#" target="_blank" rel="noopener"
-                    ><i class="bx bx-link-external"></i> Live Demo</a
-                  >
-                  <a href="#" target="_blank" rel="noopener"
-                    ><i class="bx bxl-github"></i> GitHub</a
-                  >
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="bx bx-link-external"></i> Live Demo
+                  </a>
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="bx bxl-github"></i> GitHub
+                  </a>
                 </div>
               </div>
             </article>
@@ -269,7 +263,8 @@
             <article class="project-card">
               <img
                 src="https://via.placeholder.com/400x250"
-                alt="Project 2 Preview"
+                alt="Interactive web application user interface"
+                loading="lazy"
               />
               <div class="project-content">
                 <h3>Interactive Web Application</h3>
@@ -283,12 +278,12 @@
                   <li>HTML5</li>
                 </ul>
                 <div class="project-links">
-                  <a href="#" target="_blank" rel="noopener"
-                    ><i class="bx bx-link-external"></i> Live Demo</a
-                  >
-                  <a href="#" target="_blank" rel="noopener"
-                    ><i class="bx bxl-github"></i> GitHub</a
-                  >
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="bx bx-link-external"></i> Live Demo
+                  </a>
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="bx bxl-github"></i> GitHub
+                  </a>
                 </div>
               </div>
             </article>
@@ -297,12 +292,13 @@
             <article class="project-card">
               <img
                 src="https://via.placeholder.com/400x250"
-                alt="Project 3 Preview"
+                alt="Technical SEO performance audit chart preview"
+                loading="lazy"
               />
               <div class="project-content">
                 <h3>Technical SEO Audit & Optimization</h3>
                 <p>
-                  Conducted a technical audit fixing core web vitals, broken
+                  Conducted a technical audit fixing Core Web Vitals, broken
                   links, schema markup, and metadata to boost organic search
                   rankings.
                 </p>
@@ -312,16 +308,17 @@
                   <li>Schema</li>
                 </ul>
                 <div class="project-links">
-                  <a href="#" target="_blank" rel="noopener"
-                    ><i class="bx bx-link-external"></i> Case Study</a
-                  >
-                  <a href="#" target="_blank" rel="noopener"
-                    ><i class="bx bxl-github"></i> GitHub</a
-                  >
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="bx bx-link-external"></i> Case Study
+                  </a>
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="bx bxl-github"></i> GitHub
+                  </a>
                 </div>
               </div>
             </article>
           </div>
+
           <div class="see-more-container">
             <a href="projects.html" class="see-more-btn">
               See All Projects <i class="bx bx-right-arrow-alt"></i>
@@ -330,14 +327,14 @@
         </div>
       </section>
 
-      <!-- Call to Action & Contact Section -->
+      <!-- CONTACT ME SECTION -->
       <section id="contact" class="section alt-bg">
         <div class="container contact-container">
           <h2 class="section-title">Ready to Start a Project or Hire?</h2>
           <p>
-            I'm actively seeking opportunities in Web Development and Digital
-            Marketing. Reach out and let's discuss how I can contribute to your
-            team.
+            I'm actively seeking opportunities in Web Development and
+            SEO/Digital Marketing. Reach out and let's discuss how I can
+            contribute to your team.
           </p>
 
           <form
@@ -349,6 +346,7 @@
             novalidate
           >
             <input type="hidden" name="form-name" value="contact" />
+
             <div class="form-group">
               <label for="name">Name</label>
               <input
@@ -396,33 +394,35 @@
               rel="noopener noreferrer"
               class="social-link"
               aria-label="LinkedIn"
-              ><i class="bx bxl-linkedin-square"></i> <span>LinkedIn</span></a
             >
-            |
+              <i class="bx bxl-linkedin-square"></i> <span>LinkedIn</span>
+            </a>
             <a
               href="https://github.com/user-lu"
               target="_blank"
               rel="noopener noreferrer"
               class="social-link"
               aria-label="GitHub"
-              ><i class="bx bxl-github"></i> <span>GitHub</span></a
             >
-            |
+              <i class="bx bxl-github"></i> <span>GitHub</span>
+            </a>
             <a
               href="mailto:user.sevilu6@gmail.com"
               class="social-link"
               aria-label="Email"
-              ><i class="bx bx-envelope"></i> <span>Email Me</span></a
             >
+              <i class="bx bx-envelope"></i> <span>Email Me</span>
+            </a>
           </div>
         </div>
       </section>
     </main>
 
+    <!-- FOOTER SECTION -->
     <footer>
       <p>
-        &copy; <span id="year"></span> Luis Sevilla. Built with pure HTML, CSS,
-        & Vanilla JS
+        &copy; <span id="year">2026</span> Luis Sevilla. Built with HTML, CSS, &
+        Vanilla JS
         <svg
           class="heart-icon"
           viewBox="0 0 24 24"
@@ -439,6 +439,7 @@
       </p>
     </footer>
 
+    <!-- JS SCRIPTS -->
     <script src="script.js" defer></script>
   </body>
 </html>
