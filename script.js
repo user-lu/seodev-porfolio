@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
               }
               contactForm.reset();
             } else {
-              throw new Error("Form submission network response was not ok.");
+              throw new Error(`HTTP error! Status: ${response.status}`);
             }
           })
           .catch((error) => {
